@@ -1,9 +1,7 @@
+@import url("./icon/icon.css");
 .node-arrow {
   font-size: 10px;
   user-select: none;
-}
-.node-arrow.expand {
-  transform: rotate(90deg);
 }
 
 .node-entity {
@@ -119,6 +117,12 @@
   display: none;
 }
 .node-wrapper .children-layout.expand {
+  display: block;
+}
+.node-wrapper.expand > .node-layout > .node-arrow {
+  transform: rotate(90deg);
+}
+.node-wrapper.expand > .children-layout {
   display: block;
 }
 
