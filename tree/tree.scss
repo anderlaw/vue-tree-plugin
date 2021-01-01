@@ -1,0 +1,142 @@
+.node-arrow {
+  //modify the size of arrow icon
+  font-size: 10px;
+  user-select: none;
+  &.expand {
+    transform: rotate(90deg);
+  }
+}
+.node-entity {
+  padding-right: 10px;
+  display: flex;
+  justify-content: space-between;
+
+  align-items: center;
+  font-size: 13px;
+  height: 20px;
+  margin-left: 2px;
+  & > .node-info {
+    display: flex;
+    padding: 0 10px;
+    align-items: center;
+
+    position: relative;
+    & > .node-icon-box {
+      color: #333;
+      margin-right: 2px;
+      & > * {
+        font-size: 16px;
+      }
+    }
+    & > .node-name {
+      color: #333;
+      font-size: 12px;
+    }
+    & > .node-desc {
+      margin-left: 8px;
+      color: #949090;
+      font-size: 12px;
+    }
+    //cover technique
+    &::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: 0;
+      right: 0;
+      bottom: 0;
+    }
+  }
+  & > .handle-btn-box {
+    margin-left: 14px;
+    display: flex;
+    visibility: hidden;
+    //modify the size of handle btn icon
+    .iconfont {
+      font-size: 20px !important;
+    }
+  }
+  &:hover {
+    background-color: #f2f3f7;
+    border-radius: 10px;
+    & > .handle-btn-box {
+      visibility: visible;
+    }
+  }
+  &.active {
+    background-color: #2077ff;
+    border-radius: 10px;
+    color: #fff;
+    & > .node-info {
+      & > .node-name {
+        color: #fff;
+      }
+      & > .node-desc {
+        color: #fff;
+      }
+      & > .node-icon-box {
+        color: #fff;
+      }
+    }
+  }
+}
+
+.node-wrapper {
+  position: relative;
+  padding-top: 6px;
+  &::before {
+    position: absolute;
+    content: "";
+    top: 0;
+    left: -8px;
+    width: 1px;
+    height: 16px;
+    background-color: #ccc;
+  }
+  &::after {
+    position: absolute;
+    content: "";
+    top: 16px;
+    left: -8px;
+    bottom: 0px;
+    width: 1px;
+    background-color: #ccc;
+  }
+  &:last-child {
+    &::after {
+      display: none;
+    }
+  }
+  .node-layout {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    position: relative;
+    &::before {
+      position: absolute;
+      left: -8px;
+      width: 8px;
+      height: 1px;
+      background-color: #ccc;
+      content: "";
+    }
+  }
+  .children-layout {
+    margin-left: 14px;
+    display: none;
+    &.expand {
+      display: block;
+    }
+  }
+}
+.root-wrapper {
+  &::after,
+  &::before {
+    display: none;
+  }
+  & > .node-layout::before {
+    display: none;
+  }
+}
+
+
