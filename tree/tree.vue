@@ -39,7 +39,13 @@ export default {
         this.lastActiveNodeRef &&
           this.lastActiveNodeRef.classList.remove("active");
         this.lastActiveNodeRef = targetEntityNode;
-        this.$emit("onNodeClick",event.target.dataset.pos);
+
+        if(targetEntityNode.classList.contains("active")){
+          this.$emit("onNodeClick",event.target.dataset.pos);
+        }else{
+          this.$emit("onNodeCancelClick");
+        }
+        
       }
       //node's btn clicked event
       if (targetClassList.contains("icon-editor")) {
