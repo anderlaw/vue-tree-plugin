@@ -35,11 +35,18 @@ export default {
       //onSelect event
       if (targetClassList.contains("node-info")) {
         const targetEntityNode = event.target.parentElement;
-        targetEntityNode.classList.toggle("active");
-        this.lastActiveNodeRef &&
+        if(targetEntityNode.classList.contains("active")){
+          targetEntityNode.classList.remove("active")
+          this.lastActiveNodeRef = null;
+          this.$emit("onNodeCancelClick");
+        }else{
+          this.lastActiveNodeRef &&
           this.lastActiveNodeRef.classList.remove("active");
-        this.lastActiveNodeRef = targetEntityNode;
-        this.$emit("onNodeClick",event.target.dataset.pos);
+          targetEntityNode.classList.add("active")
+          
+          this.lastActiveNodeRef = targetEntityNode;
+          this.$emit("onNodeClick",event.target.dataset.pos);
+        }
       }
       //node's btn clicked event
       if (targetClassList.contains("icon-editor")) {
