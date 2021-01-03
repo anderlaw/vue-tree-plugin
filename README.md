@@ -1,5 +1,6 @@
 # A Vue.js Tree Plugin
-
+## Support 
+- Vue.js framework version:`2.x`
 ## Installation
 
 `npm i vue-tree-plugin`
